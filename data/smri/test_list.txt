@@ -1,8 +1,0 @@
-../data/smri/center1/test.csv
-../data/smri/center2/test.csv
-../data/smri/center3/test.csv
-../data/smri/center4/test.csv
-../data/smri/center5/test.csv
-../data/smri/center6/test.csv
-../data/smri/center7/test.csv
-../data/smri/center8/test.csv
