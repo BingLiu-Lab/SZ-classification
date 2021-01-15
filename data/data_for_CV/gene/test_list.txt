@@ -1,0 +1,8 @@
+../data/gene/center1/test.csv
+../data/gene/center2/test.csv
+../data/gene/center3/test.csv
+../data/gene/center4/test.csv
+../data/gene/center5/test.csv
+../data/gene/center6/test.csv
+../data/gene/center7/test.csv
+../data/gene/center8/test.csv
