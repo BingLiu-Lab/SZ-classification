@@ -14,11 +14,11 @@ if __name__ == '__main__':
     train_list = []
     fpr_list = []
     tpr_list = []
-    with open(r"..\data\smri_gene\test_list.txt", "r") as f:
+    with open(r"..\data\data_for_CV\smri_gene\test_list.txt", "r") as f:
         for line in f.readlines():
             line = line.strip('\n')
             test_list.append(line)
-    with open(r"..\data\smri_gene\train_list.txt", "r") as f:
+    with open(r"..\data\data_for_CV\smri_gene\train_list.txt", "r") as f:
         for line in f.readlines():
             line = line.strip('\n')
             train_list.append(line)
