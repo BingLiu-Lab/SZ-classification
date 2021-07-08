@@ -1,8 +1,0 @@
-../data/data_for_CV/smri_gene/center1/test.csv
-../data/data_for_CV/smri_gene/center2/test.csv
-../data/data_for_CV/smri_gene/center3/test.csv
-../data/data_for_CV/smri_gene/center4/test.csv
-../data/data_for_CV/smri_gene/center5/test.csv
-../data/data_for_CV/smri_gene/center6/test.csv
-../data/data_for_CV/smri_gene/center7/test.csv
-../data/data_for_CV/smri_gene/center8/test.csv

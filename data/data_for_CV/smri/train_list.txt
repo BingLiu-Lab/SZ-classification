@@ -1,8 +1,0 @@
-../data/data_for_CV/smri/center1/train.csv
-../data/data_for_CV/smri/center2/train.csv
-../data/data_for_CV/smri/center3/train.csv
-../data/data_for_CV/smri/center4/train.csv
-../data/data_for_CV/smri/center5/train.csv
-../data/data_for_CV/smri/center6/train.csv
-../data/data_for_CV/smri/center7/train.csv
-../data/data_for_CV/smri/center8/train.csv

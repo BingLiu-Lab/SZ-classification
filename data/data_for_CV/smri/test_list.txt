@@ -1,8 +1,0 @@
-../data/data_for_CV/smri/center1/test.csv
-../data/data_for_CV/smri/center2/test.csv
-../data/data_for_CV/smri/center3/test.csv
-../data/data_for_CV/smri/center4/test.csv
-../data/data_for_CV/smri/center5/test.csv
-../data/data_for_CV/smri/center6/test.csv
-../data/data_for_CV/smri/center7/test.csv
-../data/data_for_CV/smri/center8/test.csv
