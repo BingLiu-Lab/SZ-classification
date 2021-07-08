@@ -4,21 +4,25 @@ import pickle
 import sklearn.preprocessing as prep
 from sklearn import svm
 from sklearn.model_selection import GridSearchCV
-from sklearn.metrics import accuracy_score, roc_auc_score, roc_curve, confusion_matrix
+from sklearn.metrics import accuracy_score, roc_auc_score, roc_curve, confusion_matrix, f1_score, precision_score, \
+    recall_score, balanced_accuracy_score
 import joblib
+import sys
 
 
 if __name__ == '__main__':
+    feature = 'gene'
+    sys.stdout = open('./log/' + feature + '_svm.txt', 'w')
     # Reading the path of all the data
     test_list = []
     train_list = []
     fpr_list = []
     tpr_list = []
-    with open(r"..\data\data_for_CV\smri_gene\test_list.txt", "r") as f:
+    with open('../data/data_for_CV/' + feature + '/test_list.txt', "r") as f:
         for line in f.readlines():
             line = line.strip('\n')
             test_list.append(line)
-    with open(r"..\data\data_for_CV\smri_gene\train_list.txt", "r") as f:
+    with open('../data/data_for_CV/' + feature + '/train_list.txt', "r") as f:
         for line in f.readlines():
             line = line.strip('\n')
             train_list.append(line)
@@ -42,11 +46,11 @@ if __name__ == '__main__':
         x_test = scaler.transform(x_test)
 
         print('Start training...')
-        clf = svm.SVC(kernel='linear', probability=True)
+        clf = svm.SVC(kernel='linear', probability=True, class_weight='balanced')
         param_grid = {'C': [1E-6, 1E-5, 1E-4, 1E-3, 1E-2, 1E-1, 1, 10]}
         grid_search = GridSearchCV(clf, param_grid, cv=10, scoring="neg_log_loss", iid=False)
         grid_search.fit(x_train, y_train.ravel())
-        model_dic = "./model/svm_smri_gene_site{}.model".format(i + 1)
+        model_dic = './model/svm_' + feature + '_site{}.model'.format(i + 1)
         joblib.dump(grid_search.best_estimator_, model_dic)
 
         print('Start predicting...')
@@ -54,18 +58,26 @@ if __name__ == '__main__':
         print("Best score on train set:{:.4f}".format(grid_search.best_score_))
         print("Test set score:{:.4f}".format(grid_search.score(x_test, y_test.ravel())))
 
-        # Printing evaluation index: Accuracy, Sensitivity, Specificity, AUC, Confusion Matrix
+        # Printing evaluation index
         y_pred = grid_search.best_estimator_.predict(x_test)
+        ACC = accuracy_score(y_test, y_pred)
         cm = confusion_matrix(y_test, y_pred)
         TPR = float(cm[0][0]) / np.sum(cm[0])
         TNR = float(cm[1][1]) / np.sum(cm[1])
-        ACC = accuracy_score(y_test, y_pred)
-        print('-------------------------------')
-        print("Test set Accuracy:{:.4f}".format(ACC))
-        print("Sensitivity:{:.4f}".format(TPR))
-        print("Specificity:{:.4f}".format(TNR))
+        balanced_accuracy = balanced_accuracy_score(y_test, y_pred)
+        precision = precision_score(y_test, y_pred)
+        recall = recall_score(y_test, y_pred)
+        f1 = f1_score(y_test, y_pred)
         y_pred_proba = grid_search.best_estimator_.predict_proba(x_test)
         AUC = roc_auc_score(y_test, y_pred_proba[:, 1])
+        print('-------------------------------')
+        print("Accuracy:{:.4f}".format(ACC))
+        print("Sensitivity:{:.4f}".format(TPR))
+        print("Specificity:{:.4f}".format(TNR))
+        print("Balanced accuracy:{:.4f}".format(balanced_accuracy))
+        print("Precision:{:.4f}".format(precision))
+        print("Recall:{:.4f}".format(recall))
+        print("f1 score:{:.4f}".format(f1))
         print("AUC:{:.4f}".format(AUC))
         print('-------------------------------')
         print('Confusion Matrix:\n', cm)
@@ -76,22 +88,10 @@ if __name__ == '__main__':
         fpr_list.append(fpr)
         tpr_list.append(tpr)
 
-    f = open('./variable/svm_smri_gene_fpr_list.pckl', 'wb')
+    f = open('./variable/svm_' + feature + '_fpr_list.pckl', 'wb')
     pickle.dump(fpr_list, f)
     f.close()
-    f = open('./variable/svm_smri_gene_tpr_list.pckl', 'wb')
+    f = open('./variable/svm_' + feature + '_tpr_list.pckl', 'wb')
     pickle.dump(tpr_list, f)
     f.close()
-
-
-
-
-
-
-
-
-
-
-
-
 
