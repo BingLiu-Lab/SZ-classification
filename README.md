@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository contains all the code for multisite Schizophrenia (SZ) Classification by integrating structural magnetic resonance imaging data (sMRI) with polygenic risk score (PGRS). Details of the method are described in the article: [Multisite Schizophrenia Classification by Integrating Structural Magnetic Resonance Imaging Data with Polygenic Risk Score.]()
+This repository contains all the code for multisite Schizophrenia (SZ) Classification by integrating structural magnetic resonance imaging data (sMRI) with polygenic risk score (PGRS). Details of the method are described in the paper: [Multisite Schizophrenia Classification by Integrating Structural Magnetic Resonance Imaging Data with Polygenic Risk Score.]()
 
 ## Data
 
