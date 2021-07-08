@@ -10,11 +10,7 @@ To protect participant privacy, which the genetic data used in our study may inv
 
 ## Usage
 
-### 1. Data for leave-one-site-out cross-validation(CV)
-
-In order to facilitate the operation of the code in this project, we divided the data in advance according to leave-one-site-out CV. The data were stored in `data/data_for_CV/`
-
-### 2. **Training SVM and LR models**
+### 1. **Training SVM and LR models**
 
 - SVM
 
@@ -30,23 +26,18 @@ In order to facilitate the operation of the code in this project, we divided the
   python code/LR.py
   ```
 
-### 3. **Ensemble learning**
+### 2. **Ensemble learning**
 
 ```
 python code/Ensemble_Learning.py
 ```
 
-### 4. Features weight
+### 3. Features weight
 
 ```
 python code/weight.py
 ```
 
-### 5. ROC curves
-
-```
-python code/ROC_curve.py
-```
 
 
 
