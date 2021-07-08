@@ -2,11 +2,11 @@
 
 ## Introduction
 
-This repository contains code and data for multisite Schizophrenia (SZ) Classification by integrating structural magnetic resonance imaging data (sMRI) and polygenic risk score (PGRS). Details of the method are described in the article: [Multisite Schizophrenia Classification by integrating structural magnetic resonance imaging data and polygenic risk score.]()
+This repository contains all the code for multisite Schizophrenia (SZ) Classification by integrating structural magnetic resonance imaging data (sMRI) with polygenic risk score (PGRS). Details of the method are described in the article: [Multisite Schizophrenia Classification by Integrating Structural Magnetic Resonance Imaging Data with Polygenic Risk Score.]()
 
 ## Data
 
-246 dimensional average gray matter volume (GMV) features based sMRI data and 145 dimensional PGRS features were used in this study. The features are stored in `data/all_data.csv`. The first column is the subjects ID, where ‘NC’ are normal controls and ‘SZ’ are SZ patients. Columns 2-247 are GMV features and columns 248-392 are PGRS features. Site information for each subject is stored in `data/Sites.csv`. 
+To protect participant privacy, which the genetic data used in our study may involve, the data is currently not available for public download. For specific research needs, the corresponding author can be contacted to discuss data sharing (bing.liu@bnu.edu.cn). 
 
 ## Usage
 
